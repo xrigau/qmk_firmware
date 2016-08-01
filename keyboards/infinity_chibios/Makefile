@@ -68,3 +68,9 @@ CUSTOM_MATRIX ?= yes # Custom matrix file
 ifndef QUANTUM_DIR
 	include ../../Makefile
 endif
+
+buildbinary: build
+	@python hex2bin.py $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
+
+program: buildbinary
+	@dfu-util -D $(BUILD_DIR)/$(TARGET).bin -S mk20dx128vlf5

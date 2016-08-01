@@ -35,14 +35,14 @@ void matrix_init(void)
     palSetPadMode(GPIOD, 7,  PAL_MODE_INPUT_PULLDOWN);
 
     /* Row(strobe) */
-    palSetPadMode(GPIOB, 0,  PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, 1,  PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, 2,  PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, 3,  PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, 16, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, 17, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, 0,  PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, 1,  PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, 2,  PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, 3,  PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOC, 4,  PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOC, 5,  PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, 6,  PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, 7,  PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOD, 0,  PAL_MODE_OUTPUT_PUSHPULL);
 
     memset(matrix, 0, MATRIX_ROWS);
@@ -56,14 +56,14 @@ uint8_t matrix_scan(void)
 
         // strobe row
         switch (row) {
-            case 0: palSetPad(GPIOB, 0);    break;
-            case 1: palSetPad(GPIOB, 1);    break;
-            case 2: palSetPad(GPIOB, 2);    break;
-            case 3: palSetPad(GPIOB, 3);    break;
-            case 4: palSetPad(GPIOB, 16);   break;
-            case 5: palSetPad(GPIOB, 17);   break;
-            case 6: palSetPad(GPIOC, 4);    break;
-            case 7: palSetPad(GPIOC, 5);    break;
+            case 0: palSetPad(GPIOC, 0);    break;
+            case 1: palSetPad(GPIOC, 1);    break;
+            case 2: palSetPad(GPIOC, 2);    break;
+            case 3: palSetPad(GPIOC, 3);    break;
+            case 4: palSetPad(GPIOC, 4);    break;
+            case 5: palSetPad(GPIOC, 5);    break;
+            case 6: palSetPad(GPIOC, 6);    break;
+            case 7: palSetPad(GPIOC, 7);    break;
             case 8: palSetPad(GPIOD, 0);    break;
         }
 
@@ -74,14 +74,14 @@ uint8_t matrix_scan(void)
 
         // un-strobe row
         switch (row) {
-            case 0: palClearPad(GPIOB, 0);    break;
-            case 1: palClearPad(GPIOB, 1);    break;
-            case 2: palClearPad(GPIOB, 2);    break;
-            case 3: palClearPad(GPIOB, 3);    break;
-            case 4: palClearPad(GPIOB, 16);   break;
-            case 5: palClearPad(GPIOB, 17);   break;
-            case 6: palClearPad(GPIOC, 4);    break;
-            case 7: palClearPad(GPIOC, 5);    break;
+            case 0: palClearPad(GPIOC, 0);    break;
+            case 1: palClearPad(GPIOC, 1);    break;
+            case 2: palClearPad(GPIOC, 2);    break;
+            case 3: palClearPad(GPIOC, 3);    break;
+            case 4: palClearPad(GPIOC, 4);    break;
+            case 5: palClearPad(GPIOC, 5);    break;
+            case 6: palClearPad(GPIOC, 6);    break;
+            case 7: palClearPad(GPIOC, 7);    break;
             case 8: palClearPad(GPIOD, 0);    break;
         }
 
